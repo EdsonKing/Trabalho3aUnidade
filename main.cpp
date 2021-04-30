@@ -1,12 +1,12 @@
 #include <iostream>
 #include<vector>
 #include "sculptor.h"
-#include "figurageometrica.h"
-#include "putbox.h"
-#include "cutbox.h"
-#include "putsphere.h"
-#include "putvoxel.h"
-#include "interpretador.h"
+#include "FiguraGeometrica.h"
+#include "Putbox.h"
+#include "Cutbox.h"
+#include "Putsphere.h"
+#include "Putvoxel.h"
+#include "Interpretador.h"
 
 
 
@@ -20,14 +20,14 @@ int main()
    Interpretador parser;
 
    std::vector<FiguraGeometrica*> figs;
-   figs=parser.parse("/home/ambj/steve.txt");
+   figs=parser.parse("Steve3d.txt");
    s1= new Sculptor(parser.getDimx(),parser.getDimy(),parser.getDimz());
 for(size_t i=0; i<figs.size();i++){
     std::cout<<"draw\n";
     figs[i]->draw(*s1);
 }
 s1->limpavoxel();
-s1->writeOFF((char*)"/home/ambj/saida.OFF");
+s1->writeOFF((char*)"Steve3d.OFF");
 for(size_t i=0;i<figs.size();i++){
     delete figs[i];
 }
